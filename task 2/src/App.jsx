@@ -1,35 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import React from 'react';
+
+const product = {
+  brand: 'Tiger of Sweden',
+  title: 'Leonard coat',
+  description: 'Minimalistic coat in cotton-blend',
+  descriptionFull: 'Men\'s minimalistic overcoat in cotton-blend. Features a stand-up collar, concealed front closure and single back vent. Slim fit with clean, straight shape. Above-knee length.',
+  price: 399,
+  currency: '£',
+}
+
+class ShopItemClass extends React.Component {
+  render() {
+    return <div className="main-content">
+    <h2>{this.item.brand}</h2>
+    <h1>{this.item.title}</h1>
+    <h3>{this.item.description}</h3>
+    <div className="description">
+      {this.item.descriptionFull}
+    </div>
+    <div className="highlight-window mobile"><div className="highlight-overlay"></div></div>
+    <div className="divider"></div>
+    <div className="purchase-info">
+      <div className="price">{this.item.price}</div>
+      <button>Добавить в корзину</button>
+    </div>
+  </div>
+  }
+}
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+  return <div className="container">
+      <div className="background-element">
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div className="highlight-window">
+        <div className='highlight-overlay'></div>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      <div className="window">
+        <ShopItemClass brand = {product.brand}
+                       title = {product.title}
+                       description = {product.description}
+                       descriptionFull = {product.descriptionFull}
+                       price = {product.currency + product.price} />
+      </div>
+    </div>
 }
 
 export default App

@@ -1,7 +1,8 @@
 import './App.css'
 
 
-const ShopItemFunc = function(item) {
+const ShopItemFunc = (item) => {
+  // console.log(item)
   return <div className="main-content">
     <h2>{item.brand}</h2>
     <h1>{item.title}</h1>
@@ -35,7 +36,11 @@ function App() {
         <div className='highlight-overlay'></div>
       </div>
       <div className="window">
-        <ShopItemFunc item={product} />
+        <ShopItemFunc brand = {product.brand}
+                      title = {product.title}
+                      description = {product.description}
+                      descriptionFull = {product.descriptionFull}
+                      price = {product.currency + product.price} />
       </div>
     </div>
     }
