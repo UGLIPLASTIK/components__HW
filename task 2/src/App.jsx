@@ -41,12 +41,7 @@ function App() {
         <div className='highlight-overlay'></div>
       </div>
       <div className="window">
-        <ShopItemClass brand = {product.brand}
-                       title = {product.title}
-                       description = {product.description}
-                       descriptionFull = {product.descriptionFull}
-                       price = {product.currency + product.price} 
-                       />
+        <ShopItemClass {...product}/>
       </div>
     </div>
 }
