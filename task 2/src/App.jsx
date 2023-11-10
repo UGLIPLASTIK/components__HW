@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import './App.css'
 import React from 'react';
 
@@ -11,18 +12,21 @@ const product = {
 }
 
 class ShopItemClass extends React.Component {
+  constructor(props) {
+    super(props)
+  }
   render() {
     return <div className="main-content">
-    <h2>{this.item.brand}</h2>
-    <h1>{this.item.title}</h1>
-    <h3>{this.item.description}</h3>
+    <h2>{this.props.brand}</h2>
+    <h1>{this.props.title}</h1>
+    <h3>{this.props.description}</h3>
     <div className="description">
-      {this.item.descriptionFull}
+      {this.props.descriptionFull}
     </div>
     <div className="highlight-window mobile"><div className="highlight-overlay"></div></div>
     <div className="divider"></div>
     <div className="purchase-info">
-      <div className="price">{this.item.price}</div>
+      <div className="price">{this.props.price}</div>
       <button>Добавить в корзину</button>
     </div>
   </div>
@@ -41,7 +45,8 @@ function App() {
                        title = {product.title}
                        description = {product.description}
                        descriptionFull = {product.descriptionFull}
-                       price = {product.currency + product.price} />
+                       price = {product.currency + product.price} 
+                       />
       </div>
     </div>
 }
